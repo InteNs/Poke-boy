@@ -143,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SHh-w2-nId">
-                                <rect key="frame" x="67" y="120" width="240" height="398"/>
+                                <rect key="frame" x="67" y="30" width="240" height="578"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mlG-Kq-r97">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="220"/>
@@ -167,33 +167,33 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u4a-dF-plL">
-                                        <rect key="frame" x="0.0" y="220" width="240" height="178"/>
+                                        <rect key="frame" x="0.0" y="220" width="240" height="358"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d7w-WR-Gl1">
-                                                <rect key="frame" x="0.0" y="0.0" width="115" height="178"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="115" height="358"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjD-w7-44J">
-                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="174"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="catchPokemon:" destination="aQt-PL-YOB" eventType="touchUpInside" id="j5D-pi-Lfc"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qb-oY-fPB">
-                                                        <rect key="frame" x="0.0" y="94" width="115" height="84"/>
+                                                        <rect key="frame" x="0.0" y="184" width="115" height="174"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kgO-aM-KWR">
-                                                <rect key="frame" x="125" y="0.0" width="115" height="178"/>
+                                                <rect key="frame" x="125" y="0.0" width="115" height="358"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMG-Am-PUy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="174"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99g-Cz-EMI">
-                                                        <rect key="frame" x="0.0" y="94" width="115" height="84"/>
+                                                        <rect key="frame" x="0.0" y="184" width="115" height="174"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                 </subviews>
@@ -206,8 +206,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SHh-w2-nId" firstAttribute="centerX" secondItem="AcS-Kd-Ywi" secondAttribute="centerX" id="XrD-oN-f94"/>
-                            <constraint firstItem="f03-k8-0Fw" firstAttribute="bottom" secondItem="SHh-w2-nId" secondAttribute="bottom" constant="100" id="btu-RN-8xf"/>
-                            <constraint firstItem="SHh-w2-nId" firstAttribute="top" secondItem="f03-k8-0Fw" secondAttribute="top" constant="100" id="pkZ-dA-qaU"/>
+                            <constraint firstItem="f03-k8-0Fw" firstAttribute="bottom" secondItem="SHh-w2-nId" secondAttribute="bottom" constant="10" id="btu-RN-8xf"/>
+                            <constraint firstItem="SHh-w2-nId" firstAttribute="top" secondItem="f03-k8-0Fw" secondAttribute="top" constant="10" id="pkZ-dA-qaU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f03-k8-0Fw"/>
                     </view>

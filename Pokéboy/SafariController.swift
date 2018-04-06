@@ -18,6 +18,9 @@ class SafariController : UIViewController {
     var pokemon = PokemonResult(id: 0, name: "", weight: 0, sprites: Sprites(front_default: ""))
     
     override func viewDidLoad() {
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         fetchPokemon()
     }
     
@@ -50,7 +53,8 @@ class SafariController : UIViewController {
     }
     
     func fetchPokemon() {
-        makeHTTPGetRequest(path: "http://pokeapi.co/api/v2/pokemon/1")
+        let id = Int(arc4random_uniform(150))
+        makeHTTPGetRequest(path: "http://pokeapi.co/api/v2/pokemon/" + String(id))
     }
     
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
