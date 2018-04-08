@@ -13,9 +13,12 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    let pokeService = PokeService()
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions
+        launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
         // Override point for customization after application launch.
         let tabBarController = self.window!.rootViewController as! UITabBarController
         let splitViewController = tabBarController.viewControllers![0] as! UISplitViewController
@@ -25,9 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         splitViewController.delegate = self
 
         let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-        let controller = masterNavigationController.topViewController as! MasterViewController
+        let masterController = masterNavigationController.topViewController as! MasterViewController
+        
         safariController.managedObjectContext = self.persistentContainer.viewContext
-        controller.managedObjectContext = self.persistentContainer.viewContext
+        safariController.pokeService = self.pokeService
+        masterController.pokeService = self.pokeService
+        
+        masterController.managedObjectContext = self.persistentContainer.viewContext
         return true
     }
 

@@ -13,81 +13,94 @@ import CoreData
 class SafariController : UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var catchButton: UIButton!
+    
     var managedObjectContext: NSManagedObjectContext? = nil
+    var pokeService: PokeService? = nil
+    var pokemon = PokemonResult(id: 0, name: "", base_experience: 0, sprites: Sprites(front_default: ""))
     
-    var pokemon = PokemonResult(id: 0, name: "", weight: 0, sprites: Sprites(front_default: ""))
-    
-    override func viewDidLoad() {
+    @IBAction func run(_ sender: Any) {
+        fetchPokemon()
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         fetchPokemon()
     }
     
     @IBAction func catchPokemon(_ sender: UIButton) {
+        var chance = 70
+        if(pokemon.base_experience > 100) {
+            chance = chance - 25
+        }
+        if(pokemon.base_experience > 200) {
+            chance = chance - 20
+        }
+        if(pokemon.base_experience > 300) {
+            chance = chance - 10
+        }
+        if(Int(arc4random_uniform(100)) > chance) {
+            after_action(caught: false)
+            return
+        }
+        
         let newPokemon = NSEntityDescription.insertNewObject(forEntityName: "Pokemon", into: managedObjectContext!) as! Pokemon
         
-        // If appropriate, configure the new managed object.
         newPokemon.name = pokemon.name
         newPokemon.id = pokemon.id
-        newPokemon.weight = pokemon.weight
-        
-        // Save the context.
-        
+        newPokemon.sprite = pokemon.sprites.front_default
+
         do {
             try managedObjectContext!.save()
-            print("saved")
         } catch {
             fatalError("Failure to save context: \(error)")
         }
-
+        after_action(caught: true)
+        
     }
     
-    func displayPokemon() {
+    private func after_action(caught: Bool) {
+        var alert: UIAlertController? = nil
+        if(caught) {
+            alert = UIAlertController(title: "Congratulations!", message: "You've caught a " + pokemon.name + " !", preferredStyle: .alert)
+        } else {
+            alert = UIAlertController(title: "Darn!", message: pokemon.name + " got away!", preferredStyle: .alert)
+        }
+        
+        alert!.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert!, animated: true)
+        fetchPokemon()
+    }
+    
+    private func displayPokemon() {
         DispatchQueue.main.async {
             self.name.text = self.pokemon.name
+            self.catchButton.isEnabled = true
         }
-        if let url = URL(string: self.pokemon.sprites.front_default) {
-            downloadImage(url: url)
+        fetchImage(url: self.pokemon.sprites.front_default)
+    }
+    
+    private func clearPokemon() {
+        DispatchQueue.main.async {
+            self.name.text = "?"
+            self.catchButton.isEnabled = false
+            self.image.image = #imageLiteral(resourceName: "placeholder")
         }
     }
     
-    func fetchPokemon() {
+    private func fetchPokemon() {
+        clearPokemon()
         let id = Int(arc4random_uniform(150))
-        makeHTTPGetRequest(path: "http://pokeapi.co/api/v2/pokemon/" + String(id))
+        pokeService!.getPokemon(id: id) { (pokemon) in
+            self.pokemon = pokemon!
+            self.displayPokemon()
+        }
     }
     
-    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
-    }
-    
-    func downloadImage(url: URL) {
-        getDataFromUrl(url: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
+    private func fetchImage(url: String) {
+        pokeService!.getImage(url: self.pokemon.sprites.front_default) { (image) in
             DispatchQueue.main.async() {
                 self.image.contentMode = .scaleAspectFit
-                self.image.image = UIImage(data: data)
+                self.image.image = image
             }
         }
-    }
-    
-    func makeHTTPGetRequest(path: String) {
-        let session = URLSession.shared
-        let url = URL(string: path)
-        let task = session.dataTask(with: url!) { (data, _, _) in
-            if let data = data {
-                guard let pokemon = try? JSONDecoder().decode(PokemonResult.self, from: data) else {
-                    print("Error: Couldn't decode data into pokemon")
-                    return
-                }
-                self.pokemon  = pokemon
-                self.displayPokemon()
-                return
-            }
-        }
-        task.resume()
     }
 }

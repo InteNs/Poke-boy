@@ -12,8 +12,15 @@ import CoreData
 struct PokemonResult: Decodable {
     let id: Int32
     let name: String
-    let weight: Int32
+    let base_experience: Int32
     let sprites: Sprites
+    
+//    init() {
+//        self.name = ""
+//        self.id = 0
+//        self.baseExperience = 0
+//        self.sprites = Sprites(front_default: "")
+//    }
 }
 
 struct Sprites: Decodable {

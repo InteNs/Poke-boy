@@ -14,8 +14,9 @@
 		137AEF1C2076D8C900CFF11F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137AEF1B2076D8C900CFF11F /* Assets.xcassets */; };
 		137AEF1F2076D8C900CFF11F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137AEF1D2076D8C900CFF11F /* LaunchScreen.storyboard */; };
 		137AEF472076DF2C00CFF11F /* SafariController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137AEF462076DF2C00CFF11F /* SafariController.swift */; };
-		137AEF512076F8AC00CFF11F /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137AEF502076F8AC00CFF11F /* Pokemon.swift */; };
+		137AEF512076F8AC00CFF11F /* ApiObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137AEF502076F8AC00CFF11F /* ApiObjects.swift */; };
 		137AEF542076FBC700CFF11F /* Poke_boy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 137AEF522076FBC700CFF11F /* Poke_boy.xcdatamodeld */; };
+		13AEC1F6207A620200E38018 /* pokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AEC1F5207A620200E38018 /* pokeService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +29,9 @@
 		137AEF1E2076D8C900CFF11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		137AEF202076D8C900CFF11F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		137AEF462076DF2C00CFF11F /* SafariController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariController.swift; sourceTree = "<group>"; };
-		137AEF502076F8AC00CFF11F /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		137AEF502076F8AC00CFF11F /* ApiObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiObjects.swift; sourceTree = "<group>"; };
 		137AEF532076FBC700CFF11F /* Poke_boy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Poke_boy.xcdatamodel; sourceTree = "<group>"; };
+		13AEC1F5207A620200E38018 /* pokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +73,8 @@
 				137AEF1D2076D8C900CFF11F /* LaunchScreen.storyboard */,
 				137AEF202076D8C900CFF11F /* Info.plist */,
 				137AEF462076DF2C00CFF11F /* SafariController.swift */,
-				137AEF502076F8AC00CFF11F /* Pokemon.swift */,
+				137AEF502076F8AC00CFF11F /* ApiObjects.swift */,
+				13AEC1F5207A620200E38018 /* pokeService.swift */,
 			);
 			path = "Pokéboy";
 			sourceTree = "<group>";
@@ -151,7 +154,8 @@
 				137AEF152076D8C900CFF11F /* MasterViewController.swift in Sources */,
 				137AEF472076DF2C00CFF11F /* SafariController.swift in Sources */,
 				137AEF172076D8C900CFF11F /* DetailViewController.swift in Sources */,
-				137AEF512076F8AC00CFF11F /* Pokemon.swift in Sources */,
+				137AEF512076F8AC00CFF11F /* ApiObjects.swift in Sources */,
+				13AEC1F6207A620200E38018 /* pokeService.swift in Sources */,
 				137AEF542076FBC700CFF11F /* Poke_boy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

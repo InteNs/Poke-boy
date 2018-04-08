@@ -8,48 +8,47 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-    @IBOutlet weak var image: UIImageView!
+class SafariDetailViewController: UIViewController {
     
-    var pokeService: PokeService? = nil
+    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    
     
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
-            if let imageView = image {
-                print(self.pokeService!)
-                self.pokeService!.getImage(url: detail.sprite!) { (image) in
-                    DispatchQueue.main.async() {
-                        imageView.contentMode = .scaleAspectFit
-                        imageView.image = image
-                    }
-                }
-            }
             if let label = detailDescriptionLabel {
                 label.text = detail.name
             }
         }
     }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     var detailItem: Pokemon? {
         didSet {
             // Update the view.
             configureView()
         }
     }
+    
+    
 }
 
+//
+//  SafariDetailViewController.swift
+//  Pokéboy
+//
+//  Created by Mark Havekes on 08/04/2018.
+//  Copyright © 2018 Mark Havekes. All rights reserved.
+//
+
+import Foundation

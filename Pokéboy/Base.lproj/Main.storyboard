@@ -6,7 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +26,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-38" y="-630"/>
+            <point key="canvasLocation" x="-167" y="-630"/>
         </scene>
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
@@ -41,6 +43,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPZ-TN-CKK">
+                                <rect key="frame" x="67" y="121" width="240" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -54,11 +60,12 @@
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="image" destination="VPZ-TN-CKK" id="L9a-p2-Nn1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="129"/>
+            <point key="canvasLocation" x="965.60000000000002" y="163.26836581709148"/>
         </scene>
         <!--Roster-->
         <scene sceneID="Nki-YV-4Qg">
@@ -73,7 +80,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1122" y="-360"/>
+            <point key="canvasLocation" x="-1196" y="-324"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
@@ -116,25 +123,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="-630"/>
+            <point key="canvasLocation" x="966" y="-630"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="LWt-kp-Dld">
-            <objects>
-                <viewController id="WGg-s4-GjX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="n3E-Ah-L4l">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="H1U-aN-F2o"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="gCp-l6-5Jy"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8rs-D4-cEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1497" y="1144"/>
-        </scene>
-        <!--Item 1-->
+        <!--Safari-->
         <scene sceneID="ZJt-l3-BpV">
             <objects>
                 <viewController id="aQt-PL-YOB" customClass="SafariController" customModule="Poke_boy" customModuleProvider="target" sceneMemberID="viewController">
@@ -142,62 +133,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SHh-w2-nId">
-                                <rect key="frame" x="67" y="30" width="240" height="578"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SHh-w2-nId">
+                                <rect key="frame" x="87" y="120" width="200" height="398"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mlG-Kq-r97">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="220"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZDh-Xr-qUT">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="180"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ZDh-Xr-qUT">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="240" id="DKX-9y-XLr"/>
-                                                    <constraint firstAttribute="height" constant="180" id="rgh-vl-xlJ"/>
+                                                    <constraint firstAttribute="height" constant="200" id="HPm-OY-xik"/>
+                                                    <constraint firstAttribute="width" constant="200" id="bFg-kC-7xq"/>
+                                                    <constraint firstAttribute="width" secondItem="ZDh-Xr-qUT" secondAttribute="height" multiplier="1:1" id="oSc-QZ-tlR"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7y-e4-rtf">
-                                                <rect key="frame" x="0.0" y="180" width="240" height="40"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7y-e4-rtf">
+                                                <rect key="frame" x="0.0" y="200" width="200" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="gl5-Mb-mPI"/>
+                                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="gl5-Mb-mPI"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.51366175518134716" green="0.51366175518134716" blue="0.51366175518134716" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u4a-dF-plL">
-                                        <rect key="frame" x="0.0" y="220" width="240" height="358"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u4a-dF-plL">
+                                        <rect key="frame" x="0.0" y="258" width="200" height="140"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d7w-WR-Gl1">
-                                                <rect key="frame" x="0.0" y="0.0" width="115" height="358"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjD-w7-44J">
-                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="174"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <connections>
-                                                            <action selector="catchPokemon:" destination="aQt-PL-YOB" eventType="touchUpInside" id="j5D-pi-Lfc"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qb-oY-fPB">
-                                                        <rect key="frame" x="0.0" y="184" width="115" height="174"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kgO-aM-KWR">
-                                                <rect key="frame" x="125" y="0.0" width="115" height="358"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMG-Am-PUy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="174"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99g-Cz-EMI">
-                                                        <rect key="frame" x="0.0" y="184" width="115" height="174"/>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjD-w7-44J">
+                                                <rect key="frame" x="0.0" y="55" width="95" height="30"/>
+                                                <state key="normal" title="Catch"/>
+                                                <connections>
+                                                    <action selector="catchPokemon:" destination="aQt-PL-YOB" eventType="touchUpInside" id="j5D-pi-Lfc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMG-Am-PUy">
+                                                <rect key="frame" x="105" y="55" width="95" height="30"/>
+                                                <state key="normal" title="Run"/>
+                                                <connections>
+                                                    <action selector="run:" destination="aQt-PL-YOB" eventType="touchUpInside" id="1yi-OF-sdc"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -205,21 +182,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SHh-w2-nId" firstAttribute="centerX" secondItem="AcS-Kd-Ywi" secondAttribute="centerX" id="XrD-oN-f94"/>
-                            <constraint firstItem="f03-k8-0Fw" firstAttribute="bottom" secondItem="SHh-w2-nId" secondAttribute="bottom" constant="10" id="btu-RN-8xf"/>
-                            <constraint firstItem="SHh-w2-nId" firstAttribute="top" secondItem="f03-k8-0Fw" secondAttribute="top" constant="10" id="pkZ-dA-qaU"/>
+                            <constraint firstItem="SHh-w2-nId" firstAttribute="top" relation="lessThanOrEqual" secondItem="f03-k8-0Fw" secondAttribute="top" constant="100" id="NfT-63-pCi"/>
+                            <constraint firstItem="SHh-w2-nId" firstAttribute="centerX" secondItem="AcS-Kd-Ywi" secondAttribute="centerX" id="cRD-c5-X9v"/>
+                            <constraint firstItem="f03-k8-0Fw" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="SHh-w2-nId" secondAttribute="bottom" constant="100" id="ex0-ti-ZlD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f03-k8-0Fw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Feb-17-Bij"/>
+                    <tabBarItem key="tabBarItem" title="Safari" id="Feb-17-Bij"/>
                     <connections>
+                        <outlet property="catchButton" destination="UjD-w7-44J" id="xAb-AV-gej"/>
                         <outlet property="image" destination="ZDh-Xr-qUT" id="SOH-n5-15c"/>
                         <outlet property="name" destination="E7y-e4-rtf" id="1EZ-jh-X1H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ab6-BP-aKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1303.2" y="375.56221889055473"/>
+            <point key="canvasLocation" x="-1196" y="1227"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xzt-A1-hdX">
@@ -233,7 +211,6 @@
                     <connections>
                         <segue destination="H1p-Uh-vWS" kind="relationship" relationship="viewControllers" id="DQ9-PT-nI8"/>
                         <segue destination="aQt-PL-YOB" kind="relationship" relationship="viewControllers" id="qLy-gh-5V4"/>
-                        <segue destination="WGg-s4-GjX" kind="relationship" relationship="viewControllers" id="rWU-fQ-VYA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dav-Xi-LZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,9 +231,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-45" y="129"/>
+            <point key="canvasLocation" x="-167" y="165"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder" width="500" height="500"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
