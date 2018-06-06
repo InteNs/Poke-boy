@@ -31,10 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let masterController = masterNavigationController.topViewController as! MasterViewController
         
         safariController.managedObjectContext = self.persistentContainer.viewContext
+        masterController.managedObjectContext = self.persistentContainer.viewContext
         safariController.pokeService = self.pokeService
         masterController.pokeService = self.pokeService
         
-        masterController.managedObjectContext = self.persistentContainer.viewContext
         return true
     }
 

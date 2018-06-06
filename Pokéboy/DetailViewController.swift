@@ -18,7 +18,6 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail = detailItem {
             if let imageView = image {
-                print(self.pokeService!)
                 self.pokeService!.getImage(url: detail.sprite!) { (image) in
                     DispatchQueue.main.async() {
                         imageView.contentMode = .scaleAspectFit
